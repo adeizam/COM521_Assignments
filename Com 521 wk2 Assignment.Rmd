@@ -1,0 +1,68 @@
+---
+title: "Second Week Assignment"
+author: "Matt"
+date: "01/10/2017"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("~/Documents/GitHub/uwcom521-assignments/week_02/week2_dataset-matthew.RData")
+my_data <- week2.dataset
+summary(my_data)
+```
+
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+Variance <- var(my_data)
+Standard_Deviation <- sd(my_data)
+```
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+total <- sum(my_data)
+num_items <- length(my_data)
+my_data_mean <- total/num_items
+my_data_mode <- count(sort(my_data))
+my_data_media <- mean(my_data, trim=0.5)
+```
+
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+Boxplot <- boxplot(my_data, horizontal=TRUE)
+Histogram <- hist(my_data)
+```
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+my_data[my_data<0] <- NA
+new_mean_data <- mean(my_data, na.rm=TRUE)
+new_sd_data <- sd(my_data, na.rm=TRUE)
+```
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+new_trnfm_data <- log10(my_data) #Log Transformed data
+trnfm_mean <- mean(new_trnfm_data, na.rm=TRUE)
+trnfm_median <- mean(new_trnfm_data, trim=0.5, na.rm=TRUE)
+Variance <- var(new_trnfm_data, na.rm=TRUE)
+Standard_Deviation <- sd(new_trnfm_data, na.rm=TRUE)
+```
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+New_Boxplot <- boxplot(new_trnfm_data, horizontal=TRUE, na.rm=TRUE)
+New_Histogram <- hist(new_trnfm_data, horizontal=TRUE, na.rm=TRUE)
+```
+
+
+
